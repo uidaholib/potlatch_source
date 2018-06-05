@@ -1,0 +1,13 @@
+field,display-name,dc-map
+title,Title,DC.title
+creator,Creator,DC.creator
+date,Date,DCTERMS.created
+subject,Subjects,DC.subject
+description,Description,DC.description
+coverage,Location,
+latitude,Latitude,
+longitude,Longitude,
+collection,Collection,
+donor,Donor,
+format,Format,
+type,Type,DC.type

@@ -1,0 +1,32 @@
+# Jekyll Digital Collection Generator
+
+# Note: use environment variable on build command to include analytics
+# JEKYLL_ENV=production jekyll build
+
+# Site settings
+title: Potlatch Historical Collections Portal
+tagline: "Browse all digital collection content related to Potlatch, Idaho"
+description: "Browse all digital collection content related to Potlatch, Idaho" 
+keywords: university of idaho, Potlatch, Idaho, digital collections
+email: ewilliamson@uidaho.edu
+
+# url variables
+url: https://www.lib.uidaho.edu
+baseurl: /digital/potlatch
+repo-url: https://digital.lib.uidaho.edu
+
+# Dev variables: 
+# choose metadata set, i.e. easily switch between full or dev version
+# be sure to also change page_gen data setting!
+metadata: potlatchportal
+
+# collection display variables 
+# see _data/metadata-fields.csv
+
+# page gen settings https://github.com/avillafiorita/jekyll-datapage_gen
+page_gen:
+  - data: 'potlatchportal'
+    template: 'items'
+    name: 'portal-id'
+    dir: 'items'
+    extension: 'html'
