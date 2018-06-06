@@ -1,12 +1,12 @@
 /* base */
-body {
+/*body {
     font-family: $base-font-family;
     font-size: $base-font-size;
     font-weight: $base-font-weight;
     line-height: $base-line-height;
     color: $text-color;
     background: $background-color;
-}
+}*/
 a {
     color: $link-color;
     text-decoration: none;
@@ -15,12 +15,13 @@ a {
         text-decoration: underline;
     }
 }
+/*
 main {
     background: $background-texture;
     .container {
         background: $background-color;
     }
-}
+}*/
 /* banner */
 #title {
     a { 
