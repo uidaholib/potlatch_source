@@ -26,10 +26,10 @@ layout: page
 <table id="timeline" class="table table-striped">
   {% for date in uniqueYears %}
   <tr>
-    <th><h3 id="{{date}}">{{ date }}</h2></th>
+    <th><h3 id="{{ date }}">{{ date }}</h2></th>
     <td>
     {% for item in items %}{% if item.date contains date %}
-    <a href="{{ "/data/" | absolute_url | append: item.portal-id | append: ".html" }}" ><img class="lazy img-thumbnail m-1" data-original="https://digital.lib.uidaho.edu/utils/ajaxhelper/?CISOROOT={{ item.cdm-alias }}&amp;CISOPTR={{ item.cdm-number }}&amp;action=2&amp;DMSCALE=20" alt="{{ item.title }}" data-toggle="tooltip" data-placement="bottom" title="{{ item.title | escape }} | {{ item.date }}"></a>
+    <a href="https://digital.lib.uidaho.edu/cdm/ref/collection/{{ item.cdm-alias }}/id/{{ item.cdm-number }}" target="_blank" ><img class="lazy img-thumbnail m-1" data-original="https://digital.lib.uidaho.edu/utils/getthumbnail/collection/{{ item.cdm-alias }}/id/{{ item.cdm-number }}" alt="{{ item.title | escape }}" data-toggle="tooltip" data-placement="bottom" title="{{ item.title | escape }} | {{ item.date | escape }}"></a>
     {% endif %}{% endfor %}
     </td>
   </tr>

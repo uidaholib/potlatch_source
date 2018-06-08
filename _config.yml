@@ -25,9 +25,9 @@ metadata: potlatch-dev
 # see _data/metadata-fields.csv
 
 # page gen settings https://github.com/avillafiorita/jekyll-datapage_gen
-page_gen:
-  - data: 'potlatch-dev'
-    template: 'items'
-    name: 'portal-id'
-    dir: 'data'
-    extension: 'html'
+#page_gen:
+#  - data: 'potlatchportal'
+#    template: 'items'
+#    name: 'portal-id'
+#    dir: 'data'
+#    extension: 'html'
