@@ -16,10 +16,10 @@ layout: default
     <div class="row">
         <div class="col-md-4" >
             <div id="item-image">
-                <img src="https://www.lib.uidaho.edu/digital/iwdl/images/sm/{{ page.resource-identifier }}.jpg" alt="pdf thumbnail" class="img-thumbnail">
+                <img src="https://digital.lib.uidaho.edu/utils/ajaxhelper/?CISOROOT={{ page.cdm-alias }}&amp;CISOPTR={{ page.cdm-number }}&amp;action=2&amp;DMSCALE=20" alt="thumbnail" class="img-thumbnail">
             </div>
             <div id="item-link" class="text-center my-2">
-                <a href="https://digital.lib.uidaho.edu/utils/getfile/collection/idahowater/id/{{ page.cdm-number }}/filename/{{ page.resource-identifier }}.pdf" target="_blank" class="btn btn-primary" title="PDF download">Download PDF</a>
+                <a href="https://digital.lib.uidaho.edu/utils/ajaxhelper/?CISOROOT={{ page.cdm-alias }}&amp;CISOPTR={{ page.cdm-number }}&amp;action=2&amp;DMSCALE=100&amp;DMWIDTH=16000&amp;DMHEIGHT=16000&amp;DMX=0&amp;DMY=0&amp;DMTEXT=&amp;DMROTATE=0" target="_blank" class="btn btn-primary" title="image download">Download item</a>
             </div>
         </div>
         <div class="col-md-8">

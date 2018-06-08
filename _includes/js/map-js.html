@@ -1,16 +1,7 @@
-{%- assign items = site.data[site.metadata] -%}
 <!-- load leaflet dependencies -->
 <script src="{{ "/assets/leaflet/leaflet.js" | relative_url }}"></script>
 <script src="{{ "/assets/leaflet/fuse.min.js" | relative_url }}"></script>
 <script src="{{ "/assets/leaflet/leaflet.fusesearch.js" | relative_url }}"></script>
-
-<!-- add collection map data -->
-<script>
-    var geodata = { "type": "FeatureCollection", "features": [ 
-    {% for item in items %}{% if item.latitude and item.longitude %}
-    { "type":"Feature", "geometry":{ "type":"Point", "coordinates":[{{ item.longitude }},{{ item.latitude }}] }, "properties":{ "title": {{ item.title | jsonify }}, "creator": {{ item.creator | jsonify }}, "date": {{ item.date | jsonify }}, "subjects": {{ item.subject | jsonify}}, "id": {{ item.portal-id | jsonify }} } }{% unless forloop.last %}, {% endunless %}{% endif %}{% endfor %}
-    ]};
-</script>
 
 <!-- int map and search -->
 <script>
@@ -36,18 +27,23 @@
     };
     var searchCtrl = L.control.fuseSearch(options);
     searchCtrl.addTo(map);
-    searchCtrl.indexFeatures(geodata.features, ['title', 'subjects', 'date', 'creator']);
+    
 
-    /* add geojson marker and popup */
-    L.geoJson(geodata, {
-        pointToLayer: function(feature,latlng){
-            var marker = L.marker(latlng);
-            marker.bindPopup('<h5>' + feature.properties.title + '</h5><p>Authors: '+ feature.properties.creator + '<br>Date: ' + feature.properties.date + '<br>Subjects: ' + feature.properties.subjects + '<br>Identifier: ' + feature.properties.id + '</p><h5><a href="{{ site.baseurl }}/docs/'+feature.properties.id+'.html" >View Document</a><h5>');
-            return marker;
-        }, 
-        onEachFeature: function (feature, layer) {
-            feature.layer = layer;
-        }
-    }).addTo(map);
+    /* load geojson data */
+    $.getJSON("{{ '/data/geodata.json' | relative_url }}", function(geodata){
+        /* add to search index */ 
+        searchCtrl.indexFeatures(geodata.features, ['title', 'subject', 'date']);
+        /* add markers and popup */ 
+        L.geoJson(geodata, {
+            pointToLayer: function(feature,latlng){
+                var marker = L.marker(latlng);
+                marker.bindPopup('<h5>' + feature.properties.title + '</h5><p>Date: ' + feature.properties.date + '<br>Subjects: ' + feature.properties.subject + '</p><h5><a href="'+feature.properties.link+'" >View Item</a><h5>');
+                return marker;
+            }, 
+            onEachFeature: function (feature, layer) {
+                feature.layer = layer;
+            }
+        }).addTo(map);
+    });
 
 </script>
