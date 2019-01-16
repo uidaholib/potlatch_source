@@ -19,15 +19,15 @@ repo-collection-ids: plcphotos!cities!whitepine!phs!spec_pot
 # Dev variables: 
 # choose metadata set, i.e. easily switch between full or dev version
 # be sure to also change page_gen data setting!
-metadata: potlatchportal
+metadata: potlatch-dev
 
 # collection display variables 
 # see _data/metadata-fields.csv
 
 # page gen settings https://github.com/avillafiorita/jekyll-datapage_gen
-page_gen:
-  - data: 'potlatchportal'
-    template: 'items'
-    name: 'portal-id'
-    dir: 'data'
-    extension: 'html'
+#page_gen:
+#  - data: 'potlatchportal'
+#    template: 'items'
+#    name: 'portal-id'
+#    dir: 'data'
+#    extension: 'html'

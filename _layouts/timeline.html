@@ -21,15 +21,15 @@ layout: page
 
 {{ content }}
 
-<p>Browse all IWDL documents from <a href="#{{ years | first }}">{{ years | first }}</a> to <a href="#{{ years | last }}">{{ years | last }}</a></p>
+<p>Browse all items from <a href="#{{ years | first }}">{{ years | first }}</a> to <a href="#{{ years | last }}">{{ years | last }}</a></p>
 
 <table id="timeline" class="table table-striped">
   {% for date in uniqueYears %}
   <tr>
-    <th><h3 id="{{date}}">{{ date }}</h2></th>
+    <th><h3 id="{{ date }}">{{ date }}</h2></th>
     <td>
     {% for item in items %}{% if item.date contains date %}
-    <a href="{{ "/docs/" | absolute_url | append: item.resource-identifier | append: ".html" }}" ><img class="lazy img-thumbnail m-1" data-original="https://www.lib.uidaho.edu/digital/iwdl/images/thumb/{{ item.resource-identifier }}.jpg" alt="{{ item.title }}" data-toggle="tooltip" data-placement="bottom" title="{{ item.title | replace: '"', '&#34;' }} | {{ item.date }}"></a>
+    <a href="https://digital.lib.uidaho.edu/cdm/ref/collection/{{ item.cdm-alias }}/id/{{ item.cdm-number }}" target="_blank" ><img class="lazy img-thumbnail m-1" data-original="https://digital.lib.uidaho.edu/utils/getthumbnail/collection/{{ item.cdm-alias }}/id/{{ item.cdm-number }}" alt="{{ item.title | escape }}" data-toggle="tooltip" data-placement="bottom" title="{{ item.title | escape }} | {{ item.date | escape }}"></a>
     {% endif %}{% endfor %}
     </td>
   </tr>

@@ -9,7 +9,7 @@
         "date": {{ item.date | jsonify }},
         "subjects": {{ item.subject | split: ";" | jsonify }},
         "description": {{ item.description | truncatewords: 20 | jsonify }},
-        "link": {{ "/data/" | absolute_url | append: item.portal-id | append: ".html" | jsonify }}
+        "link": {{ 'https://digital.lib.uidaho.edu/cdm/ref/collection/' | append: item.cdm-alias | append: '/id/' | append: item.cdm-number | jsonify }}
     }{% unless forloop.last %},{% endunless %}
     {% endfor %}
 ] }
